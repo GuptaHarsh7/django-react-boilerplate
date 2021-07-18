@@ -14,22 +14,35 @@ import { authLogin } from "../store/actions/auth";
 class LoginForm extends React.Component {
   state = {
     username: "",
-    password: ""
+    password: "",
+    formError : null
   };
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value,
+    
+      formError: null
+    });
   };
 
   handleSubmit = e => {
     e.preventDefault();
     const { username, password } = this.state;
-    this.props.login(username, password);
+    if(username !== "" && password !== "" ){
+      this.props.login(username, password);
+    }
+    else{
+      this.setState({
+        formError: "Please enter all the form fields"
+      })
+    }
+    
   };
 
   render() {
     const { error, loading, token } = this.props;
     const { username, password } = this.state;
+    const {formError} = this.state;
     if (token) {
       return <Redirect to="/" />;
     }
@@ -79,6 +92,26 @@ class LoginForm extends React.Component {
                 </Button>
               </Segment>
             </Form>
+
+            {
+              formError && (
+                <Message negtive>
+                <Message.Header>
+                  There was an error
+                </Message.Header>
+                <p>{formError}</p>
+              </Message>
+              )
+            }
+
+            { error && (
+              <Message negtive>
+                <Message.Header>
+                  There was an error
+                </Message.Header>
+                <p>{error}</p>
+              </Message>
+            )}
             <Message>
               New to us? <NavLink to="/signup">Sign Up</NavLink>
             </Message>

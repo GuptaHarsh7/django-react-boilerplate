@@ -2,7 +2,6 @@ import React from "react";
 import {
   Container,
   Divider,
-  Dropdown,
   Grid,
   Header,
   Image,
@@ -24,10 +23,16 @@ class CustomLayout extends React.Component {
             <Link to="/">
               <Menu.Item header>Home</Menu.Item>
             </Link>
+            <Link to="/demo"><Menu.Item header>Demo</Menu.Item></Link>
             {authenticated ? (
+              <React.Fragment>
               <Menu.Item header onClick={() => this.props.logout()}>
                 Logout
               </Menu.Item>
+              <Menu.Item header onClick={() => this.props.history.push("/account/change-email")}>
+                Account
+              </Menu.Item>
+              </React.Fragment>
             ) : (
               <React.Fragment>
                 <Link to="/login">
@@ -51,37 +56,24 @@ class CustomLayout extends React.Component {
           <Container textAlign="center">
             <Grid divided inverted stackable>
               <Grid.Column width={3}>
-                <Header inverted as="h4" content="Group 1" />
+                <Header inverted as="h4" content="About" />
                 <List link inverted>
-                  <List.Item as="a">Link One</List.Item>
-                  <List.Item as="a">Link Two</List.Item>
-                  <List.Item as="a">Link Three</List.Item>
-                  <List.Item as="a">Link Four</List.Item>
+                  <List.Item as="a">Sitemap</List.Item>
+                  <List.Item as="a">Contact Us</List.Item>
                 </List>
               </Grid.Column>
               <Grid.Column width={3}>
-                <Header inverted as="h4" content="Group 2" />
+                <Header inverted as="h4" content="Services" />
                 <List link inverted>
-                  <List.Item as="a">Link One</List.Item>
-                  <List.Item as="a">Link Two</List.Item>
-                  <List.Item as="a">Link Three</List.Item>
-                  <List.Item as="a">Link Four</List.Item>
-                </List>
-              </Grid.Column>
-              <Grid.Column width={3}>
-                <Header inverted as="h4" content="Group 3" />
-                <List link inverted>
-                  <List.Item as="a">Link One</List.Item>
-                  <List.Item as="a">Link Two</List.Item>
-                  <List.Item as="a">Link Three</List.Item>
-                  <List.Item as="a">Link Four</List.Item>
+                  <List.Item as="a">FAQ</List.Item>
+                  <List.Item as="a">Pricing</List.Item>
+                  <List.Item as="a">API</List.Item>
                 </List>
               </Grid.Column>
               <Grid.Column width={7}>
-                <Header inverted as="h4" content="Footer Header" />
+                <Header inverted as="h4" content="Facial Recognition SAAS" />
                 <p>
-                  Extra space for a call to action inside the footer that could
-                  help re-engage users.
+                  Find faces in your images
                 </p>
               </Grid.Column>
             </Grid>

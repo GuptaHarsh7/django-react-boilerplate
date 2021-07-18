@@ -1,6 +1,7 @@
 import os
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = os.path.dirname(os.path.dirname(
+    os.path.dirname(os.path.abspath(__file__))))
 SECRET_KEY = '-05sgp9!deq=q1nltm@^^2cc+v29i(tyybv3v2t77qi66czazj'
 DEBUG = True
 ALLOWED_HOSTS = []
@@ -12,9 +13,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'django.contrib.sites',
     'allauth',
+
     'allauth.account',
     'allauth.socialaccount',
     'corsheaders',
@@ -22,6 +23,8 @@ INSTALLED_APPS = [
     'rest_auth.registration',
     'rest_framework',
     'rest_framework.authtoken',
+
+    'core',
 ]
 
 MIDDLEWARE = [
@@ -62,7 +65,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'build/static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 SITE_ID = 1
 
@@ -75,6 +78,14 @@ REST_FRAMEWORK = {
     ),
 }
 
+AUTH_USER_MODEL = 'core.User'
+
 ACCOUNT_EMAIL_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+CORS_ORIGIN_WHITELIST = [
+
+    "http://localhost:3000",
+
+]

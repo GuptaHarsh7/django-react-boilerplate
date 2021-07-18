@@ -3,18 +3,18 @@ import React, { Component } from "react";
 import {
   Button,
   Container,
-  Divider,
   Grid,
   Header,
-  Icon,
   Image,
-  List,
-  Menu,
   Responsive,
   Segment,
   Sidebar,
   Visibility
 } from "semantic-ui-react";
+import { Link } from "react-router-dom";
+import AI from '../assets/images/ai.svg'
+
+
 
 const getWidth = () => {
   const isSSR = typeof window === "undefined";
@@ -93,56 +93,23 @@ const HomepageLayout = () => (
         <Grid.Row>
           <Grid.Column width={8}>
             <Header as="h3" style={{ fontSize: "2em" }}>
-              We Help Companies and Companions
+              Facial Recognition API
             </Header>
             <p style={{ fontSize: "1.33em" }}>
-              We can give your company superpowers to do things that they never
-              thought possible. Let us delight your customers and empower your
-              needs... through pure data analytics.
-            </p>
-            <Header as="h3" style={{ fontSize: "2em" }}>
-              We Make Bananas That Can Dance
-            </Header>
-            <p style={{ fontSize: "1.33em" }}>
-              Yes that's right, you thought it was the stuff of dreams, but even
-              bananas can be bioengineered.
+              Try out our cheap and fast facial recognition API. No credit card require.
             </p>
           </Grid.Column>
           <Grid.Column floated="right" width={6}>
             <Image
-              bordered
               rounded
               size="large"
-              src="/images/wireframe/white-image.png"
+              src={AI}
             />
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
           <Grid.Column textAlign="center">
-            <Button size="huge">Check Them Out</Button>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </Segment>
-    <Segment style={{ padding: "0em" }} vertical>
-      <Grid celled="internally" columns="equal" stackable>
-        <Grid.Row textAlign="center">
-          <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
-            <Header as="h3" style={{ fontSize: "2em" }}>
-              "What a Company"
-            </Header>
-            <p style={{ fontSize: "1.33em" }}>
-              That is what they all say about us
-            </p>
-          </Grid.Column>
-          <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
-            <Header as="h3" style={{ fontSize: "2em" }}>
-              "I shouldn't have gone with their competitor."
-            </Header>
-            <p style={{ fontSize: "1.33em" }}>
-              <Image avatar src="/images/avatar/large/nan.jpg" />
-              <b>Nan</b> Chief Fun Officer Acme Toys
-            </p>
+           <Link to="/login"> <Button primary size="huge">Get Started</Button></Link>
           </Grid.Column>
         </Grid.Row>
       </Grid>
@@ -150,36 +117,23 @@ const HomepageLayout = () => (
     <Segment style={{ padding: "8em 0em" }} vertical>
       <Container text>
         <Header as="h3" style={{ fontSize: "2em" }}>
-          Breaking The Grid, Grabs Your Attention
+          Try Our API
         </Header>
         <p style={{ fontSize: "1.33em" }}>
-          Instead of focusing on content creation and hard work, we have learned
-          how to master the art of doing nothing by providing massive amounts of
-          whitespace and generic content that can seem massive, monolithic and
-          worth your attention.
+          Test our API for free for the next two weeks no credit card reqired
         </p>
-        <Button as="a" size="large">
-          Read More
-        </Button>
-        <Divider
-          as="h4"
-          className="header"
-          horizontal
-          style={{ margin: "3em 0em", textTransform: "uppercase" }}
-        >
-          <a href="#">Case Studies</a>
-        </Divider>
+        <Link to="/login" ><Button positive size="large">
+          Start my free trial
+        </Button></Link>
         <Header as="h3" style={{ fontSize: "2em" }}>
-          Did We Tell You About Our Bananas?
+          Pricing
         </Header>
         <p style={{ fontSize: "1.33em" }}>
-          Yes I know you probably disregarded the earlier boasts as non-sequitur
-          filler content, but it's really true. It took years of gene splicing
-          and combinatory DNA research, but our bananas can really dance.
+          Pay for what you use, $0.05 per request.
         </p>
-        <Button as="a" size="large">
-          I'm Still Quite Interested
-        </Button>
+        <Link to="/login" ><Button primary size="large">
+          Start Now
+        </Button></Link>
       </Container>
     </Segment>
   </ResponsiveContainer>
